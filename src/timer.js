@@ -9,7 +9,8 @@ class Timers extends Component {
 	    
 	    this.state = {
 	       timer: null,
-	       counter: 0
+	       counter: 0,
+	       memeCount: 0
 	  	};
 
 	  	this.tick = this.tick.bind(this)
@@ -33,8 +34,11 @@ class Timers extends Component {
 		    })
 
 		    if(this.props.meme){
-		    	if(time%5==0){
+		    	if(this.state.memeCount==4){
+		    		this.setState({memeCount: 0})
 		    		this.props.memeTime()
+		    	}else{
+		    		this.setState({memeCount: this.state.memeCount+1})
 		    	}
 		    }
 		}

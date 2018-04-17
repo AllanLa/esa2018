@@ -14,7 +14,11 @@ class App extends Component {
       current: 0,
       meme: false,
       memePhotos: ["/images/meme1.jpg", "/images/meme2.png", "/images/meme3.png",
-                   "/images/meme4.png"],
+                   "/images/meme4.png", "/images/meme5.png", "/images/meme6.png", 
+                   "/images/meme7.png", "/images/meme8.png", "/images/meme9.png", 
+                   "/images/meme10.png", "/images/meme11.png", "/images/meme12.png", 
+                   "/images/meme13.png", "/images/meme14.png", "/images/meme15.png", 
+                   "/images/meme16.png", "/images/meme17.png", "/images/meme18.png"],
       answers: {0: {name: "Monica Brzozowski", correct: false, right: "/images/monicaC.png",
                     wrong: "/images/monicaW.png"} ,
                 1: {name: "Adam Workineh", correct: false, right: "/images/adamC.jpg",
@@ -25,7 +29,19 @@ class App extends Component {
                     wrong: "/images/stephenHW.png"},
                 4: {name: "Zach Schaefer", correct: false, right: "/images/zachC.png",
                     wrong: "/images/zachW.png"}, 
-                5: {name: "Allan La", correct: false, right: "/images/allanC.jpg",
+                5: {name: "Lliralyn McEachern", correct: false, right: "/images/liraC.png",
+                    wrong: "/images/liraW.png"},
+                6: {name: "Kellen Haile", correct: false, right: "/images/kellenC.jpg",
+                    wrong: "/images/kellenW.png"},
+                7: {name: "Gabe Gomez", correct: false, right: "/images/gabeC.png",
+                    wrong: "/images/gabeW.png"},                    
+                8: {name: "Elizabeth Mohler", correct: false, right: "/images/elizabethC.png",
+                    wrong: "/images/elizabethW.png"},
+                9: {name: "Lauren Sanchez", correct: false, right: "/images/laurenC.png",
+                    wrong: "/images/laurenW.png"},
+                10: {name: "Bobby Cao", correct: false, right: "/images/bobbyC.png",
+                    wrong: "/images/bobbyW.png"},                    
+                11: {name: "Allan La", correct: false, right: "/images/allanC.png",
                     wrong: "/images/allanW.png"}}
     }
 
@@ -95,9 +111,10 @@ class App extends Component {
   render() {
     var pos = this.state.current
     var info = this.state.answers[pos]
-
+    var name = ""
     if(info.correct){
-      var image = info.right     
+      var image = info.right
+      name = <h1 id="nameDisplay"> It's {info["name"]}!!!</h1>   
     }else{  
       var image = info.wrong
     }
@@ -129,7 +146,10 @@ class App extends Component {
           </div>
         </div>
 
-        {wrong}
+        <div>
+          {wrong}
+          {name}
+        </div>
         <div className = "image col-md-12 col-lg-12">
           <img src={process.env.PUBLIC_URL + image}></img>
           

@@ -82,6 +82,12 @@ footer{
   color: red;
 }
 
+#nameDisplay{
+  text-align: center;
+  color: blue;
+  margin-top: 160px;
+}
+
 img{
   height: 450px;
   width: 450px;
