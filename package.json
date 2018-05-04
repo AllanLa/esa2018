@@ -2,6 +2,7 @@
   "name": "esa2018",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://allanla.github.io/esa2018/release/v1.0",
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

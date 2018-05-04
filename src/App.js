@@ -13,13 +13,18 @@ class App extends Component {
       start: false,
       current: 0,
       meme: false,
+      finish: false,
+      displayFinish: false,
       memePhotos: ["/images/meme1.jpg", "/images/meme2.png", "/images/meme3.png",
                    "/images/meme4.png", "/images/meme5.png", "/images/meme6.png", 
                    "/images/meme7.png", "/images/meme8.png", "/images/meme9.png", 
                    "/images/meme10.png", "/images/meme11.png", "/images/meme12.png", 
                    "/images/meme13.png", "/images/meme14.png", "/images/meme15.png", 
                    "/images/meme16.png", "/images/meme17.png", "/images/meme18.png",
-                   "/images/meme19.png" , "/images/meme20.png"],
+                   "/images/meme19.png" , "/images/meme20.png", "/images/meme21.png",
+                   "/images/meme22.png", "/images/meme23.png", "/images/meme23.png",
+                   "/images/meme24.png", "/images/meme24.png", "/images/meme23.png",
+                   "/images/meme24.png", "/images/meme25.png"],
       answers: {0: {name: "Monica Brzozowski", correct: false, right: "/images/monicaC.png",
                     wrong: "/images/monicaW.png"} ,
                 1: {name: "Adam Workineh", correct: false, right: "/images/adamC.jpg",
@@ -32,37 +37,47 @@ class App extends Component {
                     wrong: "/images/airliaW.png"},
                 5: {name: "Nate Haggerty", correct: false, right: "/images/nateC.png",
                     wrong: "/images/nateW.png"},
-                6: {name: "Stephen Haberle", correct: false, right: "/images/stephenHC.jpg",
+                6: {name: "Courtney Abbot", correct: false, right: "/images/courtneyAC.png",
+                    wrong: "/images/courtneyAW.png"},
+                7: {name: "Stephen Haberle", correct: false, right: "/images/stephenHC.jpg",
                     wrong: "/images/stephenHW.png"},
-                7: {name: "Stephen Leslie", correct: false, right: "/images/stephenLC.png",
+                8: {name: "Stephen Leslie", correct: false, right: "/images/stephenLC.png",
                     wrong: "/images/stephenLW.png"},                    
-                8: {name: "Zach Schaefer", correct: false, right: "/images/zachC.png",
+                9: {name: "Zach Schaefer", correct: false, right: "/images/zachC.png",
                     wrong: "/images/zachW.png"},
-                9: {name: "Diana Jauregui", correct: false, right: "/images/dianaC.png",
+                10: {name: "Diana Jauregui", correct: false, right: "/images/dianaC.png",
                     wrong: "/images/dianaW.png"},
-                10: {name: "Ranish Byanjankar", correct: false, right: "/images/ranishC.png",
+                11: {name: "Laura Le", correct: false, right: "/images/lauraC.png",
+                    wrong: "/images/lauraW.png"},
+                12: {name: "Ranish Byanjankar", correct: false, right: "/images/ranishC.png",
                     wrong: "/images/ranishW.png"},                    
-                11: {name: "Lliralyn McEachern", correct: false, right: "/images/liraC.png",
+                13: {name: "Lliralyn McEachern", correct: false, right: "/images/liraC.png",
                     wrong: "/images/liraW.png"},
-                12: {name: "Jake Pearl", correct: false, right: "/images/jakeC.png",
+                14: {name: "Jake Pearl", correct: false, right: "/images/jakeC.png",
                     wrong: "/images/jakeW.png"},
-                13: {name: "Kellen Haile", correct: false, right: "/images/kellenC.jpg",
+                15: {name: "Kellen Haile", correct: false, right: "/images/kellenC.jpg",
                     wrong: "/images/kellenW.png"},
-                14: {name: "Diego Aldana", correct: false, right: "/images/diegoC.png",
+                16: {name: "Patricia Angela Cupay", correct: false, right: "/images/patriciaC.png",
+                    wrong: "/images/patriciaW.png"},
+                17: {name: "Karen Santizo", correct: false, right: "/images/karenC.png",
+                    wrong: "/images/karenW.png"},
+                18: {name: "Diego Aldana", correct: false, right: "/images/diegoC.png",
                     wrong: "/images/diegoW.png"},
-                15: {name: "Gabe Gomez", correct: false, right: "/images/gabeC.png",
+                19: {name: "Gabe Gomez", correct: false, right: "/images/gabeC.png",
                     wrong: "/images/gabeW.png"},                    
-                16: {name: "Elizabeth Mohler", correct: false, right: "/images/elizabethC.png",
+                20: {name: "Elizabeth Mohler", correct: false, right: "/images/elizabethC.png",
                     wrong: "/images/elizabethW.png"},
-                17: {name: "Lauren Sanchez", correct: false, right: "/images/laurenC.png",
+                21: {name: "Lauren Sanchez", correct: false, right: "/images/laurenC.png",
                     wrong: "/images/laurenW.png"},
-                18: {name: "Reginald Nelson", correct: false, right: "/images/reginaldC.png",
+                22: {name: "Reginald Nelson", correct: false, right: "/images/reginaldC.png",
                     wrong: "/images/reginaldW.png"},
-                19: {name: "Bobby Cao", correct: false, right: "/images/bobbyC.png",
+                23: {name: "Courtney Andree", correct: false, right: "/images/courtneyC.png",
+                    wrong: "/images/courtneyW.png"},
+                24: {name: "Bobby Cao", correct: false, right: "/images/bobbyC.png",
                     wrong: "/images/bobbyW.png"},     
-                20: {name: "Lidya Abune", correct: false, right: "/images/lidyaC.png",
+                25: {name: "Lidya Abune", correct: false, right: "/images/lidyaC.png",
                     wrong: "/images/lidyaW.png"},                  
-                21: {name: "Allan La", correct: false, right: "/images/allanC.png",
+                26: {name: "Allan La", correct: false, right: "/images/allanC.png",
                     wrong: "/images/allanW.png"}}
     }
 
@@ -71,6 +86,7 @@ class App extends Component {
     this.prevClicked = this.prevClicked.bind(this)
     this.nextClicked = this.nextClicked.bind(this)
     this.memeTime = this.memeTime.bind(this)
+    this.handleFinal = this.handleFinal.bind(this)
   }
 
   handleSubmit(e){
@@ -98,12 +114,17 @@ class App extends Component {
       info.correct = true
       this.setState({pos: info, score: this.state.score + 1})
       if(this.state.score == Object.keys(this.state.answers).length-1){
-        this.setState({start:false})
+
+        this.setState({start:false, finish:true})
       }
     }else{
       this.setState({meme: true})
       this.setState({wrong: this.state.wrong + 1})
     }
+  }
+
+  handleFinal(){
+    this.setState({displayFinish: true})
   }
 
   memeTime(){
@@ -148,6 +169,12 @@ class App extends Component {
     }
 
     var options = { prefix: "seconds elapsed!", delay: 100}
+
+    if(this.state.displayFinish){
+      image = "/images/final.png"
+      name = <h1 id="nameDisplay">Thank you for everything Jason, it's been a great 4 years!!!</h1> 
+    }
+
     return (
       <div className = "container">
         <h1 id="header">
@@ -155,7 +182,9 @@ class App extends Component {
         </h1>
 
         <div>
-          <Timers meme= {this.state.meme} memeTime={this.memeTime.bind(this)} start={this.state.start}/>
+          <Timers finish={this.state.finish} handleFinal={this.handleFinal.bind(this)}
+              meme= {this.state.meme} memeTime={this.memeTime.bind(this)} 
+              start={this.state.start}/>
           <div className = "score col-md-2 col-lg-2">
               Score: <br></br>{this.state.score}/{Object.keys(this.state.answers).length}
               <br></br> Wrong Answers: {this.state.wrong}
@@ -167,7 +196,9 @@ class App extends Component {
           </div>
         </div>
 
+        <br></br>
         <div>
+        
           {wrong}
           {name}
         </div>
